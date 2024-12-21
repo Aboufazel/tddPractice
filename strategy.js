@@ -1,11 +1,4 @@
-class PaymentGateway {
-    pay(amount) {
-      throw new Error("This method should be overridden!");
-    }
-  }
-  
-
-  class PaymentContext {
+class PaymentContext {
     constructor(paymentStrategy) {
       this.paymentStrategy = paymentStrategy;
     }
@@ -20,9 +13,8 @@ class PaymentGateway {
   }
 
  
-class CreditCardPayment extends PaymentGateway {
+class CreditCardPayment{
     constructor(cardNumber) {
-      super()
       this.cardNumber = cardNumber;
     }
   
@@ -32,9 +24,8 @@ class CreditCardPayment extends PaymentGateway {
   }
   
 
-  class PayPalPayment extends PaymentGateway {
+  class PayPalPayment {
     constructor(email) {
-      super()
       this.email = email;
     }
   
@@ -44,9 +35,8 @@ class CreditCardPayment extends PaymentGateway {
   }
   
 
-  class PerfectMoneyPayment extends PaymentGateway {
+  class PerfectMoneyPayment{
     constructor(accountId) {
-      super()
       this.accountId = accountId;
     }
   
@@ -56,15 +46,14 @@ class CreditCardPayment extends PaymentGateway {
   }
   
 
-  class CashPayment extends PaymentGateway {
+  class CashPayment {
     pay(amount) {
       console.log(`پرداخت ${amount} تومن به صورت نقدی`);
     }
   }
   
-  class CryptoPayment extends PaymentGateway {
+  class CryptoPayment{
     constructor(walletAddress) {
-        super()
       this.walletAddress = walletAddress;
     }
   
