@@ -6,6 +6,10 @@
     turnOff() {
         console.log("tv is turn off");
       }
+
+    changeChanel(){
+        console.log('chanel is changed')
+    }  
   }
 
 
@@ -46,14 +50,28 @@
   }
 
 
+  class ChangeTvChanel{
+    constructor(tv){
+        this.tv = tv
+    }
+
+    execute(){
+        this.tv.changeChanel()
+    }
+  }
 
   const tv = new Tv();
   const turnOffTv = new TurnOffTv(tv);  
   const turnOnTv = new TurnOnTv(tv);
+  const changeChanel = new ChangeTvChanel(tv);
   
   const remote = new Remote();  
+
   remote.setCommand(turnOnTv);
   remote.pressKey(); 
   
   remote.setCommand(turnOffTv);
+  remote.pressKey();
+
+  remote.setCommand(changeChanel);
   remote.pressKey();
