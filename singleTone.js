@@ -1,6 +1,7 @@
 class Singleton {
     constructor() {
         this.data = "Hi , Abbas";
+        this.name = "nekbat"
     }
     static getInstance() {
         if (!Singleton.instance) {
@@ -9,17 +10,19 @@ class Singleton {
         return Singleton.instance;
     }
     getData() {
-        return this.data;
+        return [this.data , this.name];
     }
-    setData(newData) {
+    setData(newData , name) {
         this.data = newData;
+        this.name = name
     }
 }
-const instance1 = Singleton.getInstance();
-console.log(instance1.getData());
-const instance2 = Singleton.getInstance();
-console.log(instance1.getData());
-console.log(instance1.getData());
-instance2.setData("Updated Abbas to Aboufazel");
-console.log(instance1.getData());
 
+const abbas = Singleton.getInstance();
+const nader = Singleton.getInstance();
+console.log(abbas.getData());
+console.log(nader.getData());
+
+nader.setData("Updated Abbas to Aboufazel" , 'salam');
+console.log(abbas.getData());
+console.log(nader.getData());
