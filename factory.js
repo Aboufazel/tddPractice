@@ -40,6 +40,7 @@ class VehicleFactory {
 
   createVehicle(vehicleType, customerName) {
     const VehicleClass = this.vehicleMap.get(vehicleType);
+    
     if (!VehicleClass) {
       throw new Error("Invalid vehicle type!");
     }

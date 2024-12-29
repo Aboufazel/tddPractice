@@ -1,8 +1,9 @@
 class Singleton {
     constructor() {
-        this.data = "Hi , Abbas";
+        this.data = "Hi, Abbas";
         this.name = "nekbat"
     }
+    
     static getInstance() {
         if (!Singleton.instance) {
             Singleton.instance = new Singleton();
@@ -18,11 +19,14 @@ class Singleton {
     }
 }
 
+
 const abbas = Singleton.getInstance();
 const nader = Singleton.getInstance();
 console.log(abbas.getData());
 console.log(nader.getData());
 
 nader.setData("Updated Abbas to Aboufazel" , 'salam');
+abbas.setData("Updated ab" , 'ab');
+
 console.log(abbas.getData());
 console.log(nader.getData());
