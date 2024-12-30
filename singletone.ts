@@ -1,24 +1,18 @@
-class Singeltone {
-    private static _instance: Singleton;
-    private sinArray : string[]
+class Logger {
+    private static instance: Logger;
+    public readonly entries: string[] = [];
 
-    private constructor(){
-       this.sinArray = ['salam' , 'be' , 'singeltone' , 'creational' ,'design' , 'patter']
-    }
+    private constructor() { }
 
-    public static getInstance(): Singleton {
-        if (!this._instance) {
-            this._instance = new Singleton();
+    public static getInstance(): Logger {
+        if (!Logger.instance) {
+            Logger.instance = new Logger();
         }
-        return this._instance;
+
+        return Logger.instance;
     }
 
-    public getData(){
-        return this.sinArray
+    public add(log: string) {
+        this.entries.push(log);
     }
-
-    public setData (data:string){
-        this.sinArray.push(data)
-    }
-
 }
