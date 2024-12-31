@@ -1,33 +1,49 @@
 class news {
-    private subscribers : string[]
-    private constructor (){
-        this.subscribers
+    public subscribers : User[]
+    public constructor (){
+        this.subscribers = []
     }
 
-    public newSubscribe (user:string){
+    public newSubscribe (user:any){
          this.subscribers.push(user)
     }
 
-    public unSubscribe (user:string){
+    public unSubscribe (user:any){
        this.subscribers = this.subscribers.filter(info=> info !== user)
     }
 
     public publishNews(news:string) {
-        console.log(`News publishNewsed: ${news}`);
+        this.notifySubscribers(news)
     }
     
+    private notifySubscribers(news: string) {
+        this.subscribers.forEach((subscriber) => {
+            subscriber.receive(news , subscriber.name);
+        });
+    }
 }
 
 
-class user {
-    private name : string
+class User {
+    public name : string
 
-    private constructor(){
-        this.name
+    public constructor(name){
+        this.name = name
     }
   
     public receive(news:string , name:string) {
       console.log(`${this.name} received news: ${news}`);
     }
   }
+
+   const newsChannel = new news()
+  const abbas = new User('abbas')
+  const nader = new User('nader')
   
+  newsChannel.newSubscribe(abbas)
+  newsChannel.newSubscribe(nader)
+
+  newsChannel.publishNews('salaaaaaaam sallllllllam')
+
+  
+

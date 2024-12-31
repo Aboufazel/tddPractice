@@ -12,7 +12,7 @@
 
 class motorcycle implements creatingLine {
     creating(): void {
-        console.log('car been creating');
+        console.log('motor been creating');
     }
 }
 
@@ -47,3 +47,10 @@ abstract class vehicleFactory {
         this.creating.creating()
     }
  }
+
+
+ const carVeichice = new carFactory()
+ carVeichice.planCreating()
+
+ const motorVeichice = new motocycleFactory()
+ motorVeichice.planCreating()
